@@ -89,7 +89,7 @@ class Board:
             (-1,  1), (0,  1), (1,  1)
         ]
 
-        result = []
+        result = [] 
         for dc, dr in deltas:
             nc, nr = col + dc, row + dr           # 새로운 좌표 계산
             if self.is_inbounds(nc, nr):          # 보드 안쪽이면만 추가
@@ -160,11 +160,11 @@ class Board:
             c,r = to_reveal.pop()
             cur = self.cells[self.index(c,r)] #객체 참조
             # 깃발이나 이미 열린 cell은 무시
-            if cur.state.is_revealed or cur.state.is_flaged:
+            if cur.state.is_revealed or cur.state.is_flagged:
                 continue
             
             cur.state.is_revealed = True
-            self.reveal_count += 1
+            self.revealed_count += 1
 
             if cur.state.adjacent == 0:
                 # 주변에 지뢰가 없으면 flood fill 시작
